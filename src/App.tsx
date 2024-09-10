@@ -14,7 +14,7 @@ function App() {
   function carregaUsuario(e: any) {
     try {
       // desativa padrao
-      // e.preventDefault();
+      e.preventDefault();
       // carrega sinal
       setflgCarregar(true);
     } catch (error: any) {
