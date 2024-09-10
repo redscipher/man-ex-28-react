@@ -1,19 +1,19 @@
 // importacoes
-import './cab.css'
+import estilos from './cab.module.css'
 
 // parametro 'props' sao os atributos passados na chamada do componente
 const Perfil = (props: any) => {
 
     // desestrutura objeto
-    const { endereco, nome } = props;
+    const { nomeUsuario } = props;
 
     return (
-        <div>
+        <header className={estilos.cabecalho}>
             {/* converte um objeto em string */}
-            {JSON.stringify(props)}
-            <img className="perfil-avatar" src={endereco} alt="" />
-            <h3 className="perfil-titulo">{nome}</h3>
-        </div>
+            {/* {JSON.stringify(props)} */}
+            <img className={estilos.avatar} src={`https://github.com/${nomeUsuario}.png`} alt="" />
+            <h1 className={estilos.nome}>{nomeUsuario}</h1>
+        </header>
     )
 }
 
