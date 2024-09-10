@@ -1,5 +1,4 @@
 // importacoes
-// import { useState } from 'react';
 import { useState } from 'react';
 import Perfil from './componentes/Cab';
 // import Formulario from './componentes/Formulario';
@@ -7,14 +6,30 @@ import ListaRepos from './componentes/listaRepos';
 
 function App() {
 
+
   // const [formVisivel, setFormVisivel] = useState(true);
   const [nomeUsuario, setNomeUsuario] = useState('');
+  const [flgCarregar, setflgCarregar] = useState(false);
+
+  function carregaUsuario(e: any) {
+    try {
+      // desativa padrao
+      // e.preventDefault();
+      // carrega sinal
+      setflgCarregar(true);
+    } catch (error: any) {
+      console.log(error.stack)
+    }
+  }
 
   return (
     <>
-      <input type="text" onBlur={(e: any) => setNomeUsuario(e.target.value)} />
+      <form className="container" action="">
+        <input type="text" placeholder="Entre com seu nome de usuário do GitHub" onBlur={(e: any) => setNomeUsuario(e.target.value)} />
+        <button type="button" onClick={carregaUsuario}>Carregar</button>
+      </form>
       {/* condicao */}
-      {nomeUsuario.length > 0 && (
+      {flgCarregar && (
         <>
           {/* passa valores p/ atributos do componente */}
           <Perfil nomeUsuario={nomeUsuario}></Perfil>

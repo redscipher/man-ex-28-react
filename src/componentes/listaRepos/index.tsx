@@ -18,16 +18,12 @@ const ListaRepos = (props: any) => {
                 setEstaCarregando(true);
                 setFlgErro(false);
                 setRepos([]);
-                console.log('resetando qtd. repos: ' + repos.length);
                 // espera p/ carregamento
                 setTimeout(() => {
                     setRepos(resJson);
                     setEstaCarregando(false);
                     // validacao de erro
-                    console.log(repos);
                     setFlgErro(repos.length == null || repos.length == undefined ? true : false);
-                    console.log('qtd. repos: ' + repos.length);
-                    console.log('Houve erro ? ' + flgErro);
                 }, 1000)})
             .catch((e: any) => {
                 console.log('entrou aqui 2')
